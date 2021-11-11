@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 
-import { Observable, Subscription } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
-import { ElectronService } from '../../providers/electron.service';
-import { ImageElementService } from './../../services/image-element.service';
-import { SourceFolderService } from './source-folder.service';
+import {ElectronService} from '../../providers/electron.service';
+import {ImageElementService} from './../../services/image-element.service';
+import {SourceFolderService} from './source-folder.service';
 
-import { AppStateInterface } from '../../common/app-state';
-import { ImageElement, ScreenshotSettings, InputSources } from '../../../../interfaces/final-object.interface';
+import {AppStateInterface} from '../../common/app-state';
+import {ImageElement, InputSources, ScreenshotSettings} from '../../../../interfaces/final-object.interface';
 
-import { metaAppear, breadcrumbWordAppear } from '../../common/animations';
+import {breadcrumbWordAppear, metaAppear} from '../../common/animations';
 
 export interface ServerDetails {
   port: number;
@@ -88,7 +88,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
 
     console.log('port from settings:', this.appState.port);
 
-    this.selectedPort = this.appState.port ? this.appState.port : 3000;
+    this.selectedPort = this.appState ? this.appState.port ? this.appState.port : 3000 : 3000;
 
     // IPC subscriptions - come in as BehaviorSubject.asObservable()
 
